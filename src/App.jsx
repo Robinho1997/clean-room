@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import ZimmerStatus from "./pages/ZimmerStatus";
 import Navbar from "./components/Navbar";
-import ZimmerAuswahl from "./pages/ZimmerAuswahl";
+import Room from "./components/Room";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<ZimmerStatus />} />
-        <Route path="/zimmer" element={<ZimmerAuswahl />} />
+        <Route path="/zimmer/:raumnummer" element={<Room />} />
       </Routes>
     </div>
   );

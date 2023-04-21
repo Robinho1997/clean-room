@@ -6,17 +6,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <img className="logo" src="/src/img/logo.png" />
-      <div className="links">
-   
-        <Link to="/">
-        <span class="material-symbols-outlined">hourglass_empty</span> <p>Zimmerstatus</p>
-        </Link>
-        <Link to="/zimmer">
-          {" "}
-          <span class="material-symbols-outlined room-symbol">hotel</span>
-          <p>Zimmer</p>
-        </Link>{" "}
-      </div>
+      <Link to="/">
+        <span className="material-symbols-outlined">hourglass_empty</span>{" "}
+        <p>Zimmerstatus</p>
+      </Link>
     </nav>
   );
 }

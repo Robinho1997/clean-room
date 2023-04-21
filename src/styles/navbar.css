@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
 .navbar {
+    background-color: black;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 22px;
-    background-color: rgb(199, 199, 199);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 30px 100px;
+    align-items:end;
+    padding: 30px;
+  border-bottom: 1px solid whitesmoke;
+  
 }
 
 .navbar a {
-    color: #735a44;
+    color: whitesmoke;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -30,11 +32,12 @@
 
 .links {
     display: flex;
-    gap: 100px;
+    gap: 50px;
 }
 
 .logo {
     width: 120px;
+   
 }
 
 .room-symbol {
