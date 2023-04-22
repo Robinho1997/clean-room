@@ -3,7 +3,7 @@ const roomData = [
     id: 1,
     raumnummer: 11,
     etage: 1,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -43,7 +43,7 @@ const roomData = [
     id: 2,
     raumnummer: 12,
     etage: 1,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -83,7 +83,7 @@ const roomData = [
     id: 3,
     raumnummer: 13,
     etage: 1,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -123,7 +123,7 @@ const roomData = [
     id: 4,
     raumnummer: 14,
     etage: 1,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -163,7 +163,7 @@ const roomData = [
     id: 5,
     raumnummer: 15,
     etage: 1,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -203,7 +203,7 @@ const roomData = [
     id: 6,
     raumnummer: 16,
     etage: 1,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -243,7 +243,7 @@ const roomData = [
     id: 7,
     raumnummer: 21,
     etage: 2,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -283,7 +283,7 @@ const roomData = [
     id: 8,
     raumnummer: 22,
     etage: 2,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -323,7 +323,7 @@ const roomData = [
     id: 9,
     raumnummer: 23,
     etage: 2,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -363,7 +363,7 @@ const roomData = [
     id: 10,
     raumnummer: 24,
     etage: 2,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -403,7 +403,7 @@ const roomData = [
     id: 11,
     raumnummer: 25,
     etage: 2,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -443,7 +443,7 @@ const roomData = [
     id: 12,
     raumnummer: 26,
     etage: 2,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -483,7 +483,7 @@ const roomData = [
     id: 13,
     raumnummer: 31,
     etage: 3,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -523,7 +523,7 @@ const roomData = [
     id: 14,
     raumnummer: 32,
     etage: 3,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -563,7 +563,7 @@ const roomData = [
     id: 15,
     raumnummer: 33,
     etage: 3,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -603,7 +603,7 @@ const roomData = [
     id: 16,
     raumnummer: 34,
     etage: 3,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -643,7 +643,7 @@ const roomData = [
     id: 17,
     raumnummer: 35,
     etage: 3,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -683,7 +683,7 @@ const roomData = [
     id: 18,
     raumnummer: 36,
     etage: 3,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },
@@ -723,7 +723,7 @@ const roomData = [
     id: 19,
     raumnummer: 40,
     etage: 4,
-    reinigunsstatus: "unsauber",
+    reinigunsstatus: false,
     aufgaben: [
       { id: 1, name: "Zimmer lüften", erledigt: false },
       { id: 2, name: "Bett beziehen", erledigt: false },

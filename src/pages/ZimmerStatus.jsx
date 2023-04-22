@@ -17,7 +17,7 @@ function ZimmerStatus() {
           key={room.id}
           to={`/zimmer/${room.raumnummer}`}
           className={`room-number ${
-            room.reinigunsstatus === "unsauber" ? "cleaned" : "dirty "
+            room.reinigunsstatus ? "cleaned" : "dirty "
           }`}
         >
           {room.raumnummer}
@@ -29,7 +29,7 @@ function ZimmerStatus() {
           key={room.id}
           to={`/zimmer/${room.raumnummer}`}
           className={`room-number ${
-            room.reinigunsstatus === "unsauber" ? "cleaned" : "dirty "
+            room.reinigunsstatus ? "cleaned" : "dirty "
           }`}
         >
           {room.raumnummer}
@@ -41,7 +41,7 @@ function ZimmerStatus() {
           key={room.id}
           to={`/zimmer/${room.raumnummer}`}
           className={`room-number ${
-            room.reinigunsstatus === "unsauber" ? "cleaned" : "dirty "
+            room.reinigunsstatus ? "cleaned" : "dirty "
           }`}
         >
           {room.raumnummer}
@@ -53,7 +53,7 @@ function ZimmerStatus() {
           key={room.id}
           to={`/zimmer/${room.raumnummer}`}
           className={`room-number ${
-            room.reinigunsstatus === "unsauber" ? "cleaned" : "dirty "
+            room.reinigunsstatus ? "cleaned"  : "dirty "
           }`}
         >
           {room.raumnummer}

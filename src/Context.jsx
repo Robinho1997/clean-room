@@ -40,8 +40,11 @@ function ContextProvider(props) {
     setRooms(newRooms);
   }
 
+
+  
+
   return (
-    <Context.Provider value={{ rooms, toggleErledigt }}>
+    <Context.Provider value={{ rooms, setRooms, toggleErledigt }}>
       {props.children}
     </Context.Provider>
   );
