@@ -1,6 +1,7 @@
 import React from "react";
 import roomData from "../data/roomData";
 import "../styles/zimmerstatus.css";
+
 import { Link } from "react-router-dom";
 
 function ZimmerStatus() {
@@ -8,6 +9,11 @@ function ZimmerStatus() {
   let floorTwo = [];
   let floorThree = [];
   let sweet = [];
+
+
+ 
+
+
 
   for (let i = 0; i < roomData.length; i++) {
     let room = roomData[i];
