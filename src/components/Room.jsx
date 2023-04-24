@@ -19,16 +19,10 @@ function Room() {
   };
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const roomsRef = ref(db, "rooms/");
+
   const [myData, setMyData] = useState(roomData);
 
-  useEffect(() => {
-    get(roomsRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(typeof snapshot.val());
-      }
-    });
-  }, []);
+
 
   useEffect(() => {
     const dbRef = ref(getDatabase());
@@ -41,6 +35,10 @@ function Room() {
     });
   }, []);
 
+
+
+
+
   function cleanRoom(raumnummer, aufgabeId, badezimmer) {
     if (badezimmer) {
       const newRooms = roomData.map((room) => {
@@ -49,6 +47,9 @@ function Room() {
             if (aufgabe.id === aufgabeId) {
               aufgabe.erledigt = !aufgabe.erledigt;
             }
+            const allAufgabenErledigt = room.aufgaben.every((aufgabe) => aufgabe.erledigt);
+            const allBadezimmerAufgabenErledigt = room.badezimmerAufgaben.every((aufgabe) => aufgabe.erledigt);
+            room.reinigunsstatus = allAufgabenErledigt && allBadezimmerAufgabenErledigt;
           });
         }
         return room;
