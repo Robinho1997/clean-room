@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getDatabase, ref, set, get, onValue, child } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { initializeApp } from "firebase/app";
-import roomData from "./data/roomData";
+
 const Context = createContext();
 
 function ContextProvider(props) {
@@ -15,66 +15,24 @@ function ContextProvider(props) {
     messagingSenderId: "347402765240",
     appId: "1:347402765240:web:ac2534f322cd9c6349454d",
   };
+
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  const [data, setData] = useState(roomData);
-
+  const [data, setData] = useState();
   useEffect(() => {
-    const dbRef = ref(getDatabase());
-    const newRoomsRef = child(dbRef, "rooms/newRooms");
-    onValue(newRoomsRef, (snapshot) => {
+    const roomsRef = ref(db, "rooms");
+    onValue(roomsRef, (snapshot) => {
       const data = snapshot.val();
-      if (data) {
-        setData(data);
-      }
+      setData(data);
     });
-  }, []);
-
-  function cleanRoom(raumnummer, aufgabeId, badezimmer) {
-    if (badezimmer) {
-      const newRooms = data.map((room) => {
-        if (room.raumnummer === raumnummer) {
-          room.badezimmerAufgaben.forEach((aufgabe) => {
-            if (aufgabe.id === aufgabeId) {
-              aufgabe.erledigt = !aufgabe.erledigt;
-            }
-            const allAufgabenErledigt = room.aufgaben.every(
-              (aufgabe) => aufgabe.erledigt
-            );
-            const allBadezimmerAufgabenErledigt = room.badezimmerAufgaben.every(
-              (aufgabe) => aufgabe.erledigt
-            );
-            room.reinigunsstatus =
-              allAufgabenErledigt && allBadezimmerAufgabenErledigt;
-          });
-        }
-        return room;
-      });
-      set(ref(db, "rooms/"), {
-        newRooms,
-      });
-    } else {
-      const newRooms = roomData.map((room) => {
-        if (room.raumnummer === raumnummer) {
-          room.aufgaben.forEach((aufgabe) => {
-            if (aufgabe.id === aufgabeId) {
-              aufgabe.erledigt = !aufgabe.erledigt;
-            }
-          });
-        }
-        return room;
-      });
-      set(ref(db, "rooms/"), {
-        newRooms,
-      });
-    }
-  }
+    return () => {
+      onValue(roomsRef, null);
+    };
+  }, [db]);
 
   return (
-    <Context.Provider value={{ data, cleanRoom }}>
-      {props.children}
-    </Context.Provider>
+    <Context.Provider value={{ data, db }}>{props.children}</Context.Provider>
   );
 }
 

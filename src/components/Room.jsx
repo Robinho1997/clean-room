@@ -1,62 +1,52 @@
 import React, { useEffect, useState, useContext } from "react";
+import { nanoid } from "nanoid";
 import { Context } from "../Context";
 import { useParams } from "react-router-dom";
 import "../styles/room.css";
-
+import Aufgabe from "./Aufgabe";
 
 function Room() {
   const { raumnummer } = useParams();
-  const {data,cleanRoom} = useContext(Context)
+  const { data } = useContext(Context);
+  const dataArray = data ? Object.values(data) : [];
+  const room = dataArray.find((room) => room.raumnummer == raumnummer);
 
+  let Aufgaben = null;
+  let BadezimmerAufgaben = null;
 
-  const room = data.find((room) => room.raumnummer == raumnummer);
-
-  const Aufgaben = room.aufgaben.map((aufgabe) => {
-    return (
-      <div className="aufgabe" key={aufgabe.id}>
-        <p style={{ color: aufgabe.erledigt ? "green" : "red" }}>
-          {aufgabe.name}
-        </p>
-        <input
-          onClick={() => cleanRoom(room.raumnummer, aufgabe.id)}
-          type="checkbox"
+  if (room) {
+    Aufgaben = room.aufgaben.map((aufgabe) => {
+      return (
+        <Aufgabe
+          key={nanoid()}
+          id={aufgabe.id}
+          aufgabeName={aufgabe.name}
+          aufgabe={aufgabe}
+          raumnummer={raumnummer}
+          badezimmer={false}
         />
-      </div>
-    );
-  });
-
-  const BadezimmerAufgaben = room.badezimmerAufgaben.map((aufgabe) => {
-    return (
-      <div className="aufgabe" key={aufgabe.id}>
-        <p style={{ color: aufgabe.erledigt ? "green" : "red" }}>
-          {aufgabe.name}
-        </p>
-        <input
-          type="checkbox"
-          onClick={() => cleanRoom(room.raumnummer, aufgabe.id, true)}
+      );
+    });
+    BadezimmerAufgaben = room.badezimmerAufgaben.map((aufgabe) => {
+      return (
+        <Aufgabe
+          key={nanoid()}
+          id={aufgabe.id}
+          aufgabeName={aufgabe.name}
+          aufgabe={aufgabe}
+          raumnummer={raumnummer}
+          badezimmer={true}
         />
-      </div>
-    );
-  });
+      );
+    });
+  }
 
   return (
     <div className="room-page">
-      <div className="aufgaben-container">
-        <div>
-          <div className="icon-and-header">
-            <span className="material-symbols-outlined icon">hotel</span>
-            <h1 className="aufgabe-header">Zimmer {raumnummer}</h1>
-          </div>
-          {Aufgaben}
-        </div>
-        <div>
-          <div className="icon-and-header">
-            <span className="material-symbols-outlined icon">bathtub</span>
-            <h2 className="aufgabe-header">Badezimmer Aufgaben</h2>
-          </div>
-          {BadezimmerAufgaben}
-        </div>
-      </div>
+      <h1>Zimmer {raumnummer}</h1>
+      {Aufgaben}
+      <h1>Badezimmer</h1>
+      {BadezimmerAufgaben}
     </div>
   );
 }
