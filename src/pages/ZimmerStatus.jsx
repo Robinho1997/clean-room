@@ -9,10 +9,7 @@ function ZimmerStatus() {
   const { data,db } = useContext(Context);
   const dataArray = data ? Object.values(data) : [];
   let elements;
-console.log(dataArray)
 
-  //check if all aufgaben erledigt is true and all badezimmerAufgaben erledigt is true , then set zimmerstatus to true
-  //if not set zimmerstatus to false
 useEffect(() => {
   if (data) {
     dataArray.forEach((room) => {
@@ -45,7 +42,7 @@ useEffect(() => {
         <Link
           key={nanoid()}
           to={`zimmer/${room.raumnummer}`}
-          className={room.reinigunsstatus ? "cleaned" : "dirty"}
+          className={room.reinigunsstatus ? "cleaned room-number" : "dirty room-number"}
         >
           {room.raumnummer}
         </Link>
