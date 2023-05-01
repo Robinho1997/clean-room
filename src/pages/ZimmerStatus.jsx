@@ -8,6 +8,7 @@ function ZimmerStatus() {
   const { data } = useContext(Context);
   const dataArray = data ? Object.values(data) : [];
   let elements;
+  
   if (data) {
     elements = dataArray.map((room) => {
       return (

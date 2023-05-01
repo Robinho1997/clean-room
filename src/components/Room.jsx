@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { nanoid } from "nanoid";
 import { Context } from "../Context";
 import { useParams } from "react-router-dom";
@@ -43,10 +43,21 @@ function Room() {
 
   return (
     <div className="room-page">
-      <h1>Zimmer {raumnummer}</h1>
-      {Aufgaben}
-      <h1>Badezimmer</h1>
-      {BadezimmerAufgaben}
+      <div className="aufgaben-container">
+        <h1>
+          <span className="material-symbols-outlined icon">room_service</span> Zimmer{" "}
+          {raumnummer}
+        </h1>
+        {Aufgaben}
+      </div>
+      <div className="aufgaben-container">
+  
+        <h1>
+          <span className="material-symbols-outlined icon">shower</span> Badezimmer{" "}
+          {raumnummer}
+        </h1>
+        {BadezimmerAufgaben}
+      </div>
     </div>
   );
 }

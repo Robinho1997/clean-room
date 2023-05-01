@@ -10,43 +10,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 20px;
+}
+
+.aufgaben-container h1 {
+    margin: 0;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .aufgabe {
-    display: flex;
-    align-items: center;
+    cursor: pointer;
+   text-align: center;
     border: 1px solid grey;
-    padding: 10px 30px;
-    gap: 10px;
+    padding: 20px 30px;
     width: 270px;
     border-radius: 10px;
-    margin-block: 20px;
     justify-content: space-between;
-}
-
-.aufgabe p {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
+    margin: 0;
 }
 
-input[type='checkbox'] {
-    width:30px;
-    height:30px;
-    background:white;
-    border-radius:15px;
-    cursor: pointer;
-}
+
+
+
 
 .icon {
-    font-size: 50px;
+    font-size: 40px;
 }
 
-.icon-and-header {
-    margin-top: 30px;
-  display: flex;
-   align-items: center;
- gap: 20px;
-}
+
 
