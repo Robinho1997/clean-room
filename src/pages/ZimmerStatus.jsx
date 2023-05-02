@@ -6,50 +6,71 @@ import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 function ZimmerStatus() {
-  const { data,db } = useContext(Context);
+  const { data, db } = useContext(Context);
   const dataArray = data ? Object.values(data) : [];
   let elements;
 
-useEffect(() => {
-  if (data) {
-    dataArray.forEach((room) => {
-      let aufgabenErledigt = true;
-      let badezimmerAufgabenErledigt = true;
-      let reinigunsstatus = true;
+  function resetRooms() {
+    for (const room of dataArray) {
       room.aufgaben.forEach((aufgabe) => {
-        if (!aufgabe.erledigt) {
-          aufgabenErledigt = false;
-        }
+        aufgabe.erledigt = false;
       });
       room.badezimmerAufgaben.forEach((aufgabe) => {
-        if (!aufgabe.erledigt) {
-          badezimmerAufgabenErledigt = false;
-        }
+        aufgabe.erledigt = false;
       });
-      if (!aufgabenErledigt || !badezimmerAufgabenErledigt) {
-        reinigunsstatus = false;
-      }
-      room.reinigunsstatus = reinigunsstatus;
-    });
-    set(ref(db, "rooms"), data);
+      room.reinigunsstatus = false;
+      set(ref(db, "rooms"), dataArray);
+    }
   }
-}, [])
 
-  
+  useEffect(() => {
+    if (data) {
+      dataArray.forEach((room) => {
+        let aufgabenErledigt = true;
+        let badezimmerAufgabenErledigt = true;
+        let reinigunsstatus = true;
+        room.aufgaben.forEach((aufgabe) => {
+          if (!aufgabe.erledigt) {
+            aufgabenErledigt = false;
+          }
+        });
+        room.badezimmerAufgaben.forEach((aufgabe) => {
+          if (!aufgabe.erledigt) {
+            badezimmerAufgabenErledigt = false;
+          }
+        });
+        if (!aufgabenErledigt || !badezimmerAufgabenErledigt) {
+          reinigunsstatus = false;
+        }
+        room.reinigunsstatus = reinigunsstatus;
+      });
+      set(ref(db, "rooms"), data);
+    }
+  }, []);
+
   if (data) {
     elements = dataArray.map((room) => {
       return (
         <Link
           key={nanoid()}
           to={`zimmer/${room.raumnummer}`}
-          className={room.reinigunsstatus ? "cleaned room-number" : "dirty room-number"}
+          className={
+            room.reinigunsstatus ? "cleaned room-number" : "dirty room-number"
+          }
         >
           {room.raumnummer}
         </Link>
       );
     });
   }
-  return <div className="zimmer-status-div">{elements}</div>;
+  return (
+    <div>
+      <div className="zimmer-status-div">{elements}</div>
+      <button className="reset-btn" onClick={resetRooms}>
+        <span className="material-symbols-outlined">delete</span>
+      </button>
+    </div>
+  );
 }
 
 export default ZimmerStatus;

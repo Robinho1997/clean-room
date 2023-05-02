@@ -55,3 +55,20 @@
 .cleaned {
     background-color: rgb(39, 163, 39);
 }
+
+.reset-btn {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+   border-radius: 2px;
+   padding: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    background-color: red;
+   border-top: 1px solid grey;
+   border-left: none;
+    display: flex;
+}

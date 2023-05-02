@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, set, ref, onValue } from "firebase/database";
 import { initializeApp } from "firebase/app";
 
 const Context = createContext();
@@ -31,8 +31,13 @@ function ContextProvider(props) {
     };
   }, [db]);
 
+
+
+
+
+
   return (
-    <Context.Provider value={{ data, db }}>{props.children}</Context.Provider>
+    <Context.Provider value={{ data, db}}>{props.children}</Context.Provider>
   );
 }
 
