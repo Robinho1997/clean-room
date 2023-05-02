@@ -2,13 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { Context } from "../Context";
 import { useParams } from "react-router-dom";
+import { ref, set } from "firebase/database";
 import { Link } from "react-router-dom";
 import "../styles/room.css";
 import Aufgabe from "./Aufgabe";
 
 function Room() {
   const { raumnummer } = useParams();
-  const { data } = useContext(Context);
+  const { data, db } = useContext(Context);
   const dataArray = data ? Object.values(data) : [];
   const room = dataArray.find((room) => room.raumnummer == raumnummer);
 
@@ -61,6 +62,20 @@ function Room() {
     }
   }, [raumnummer]);
 
+  function checkAllTasks() {
+    if (data) {
+      dataArray.find((room) => room.raumnummer == raumnummer);
+    room.aufgaben.forEach((aufgabe) => {
+      aufgabe.erledigt = true;
+    });
+    room.badezimmerAufgaben.forEach((aufgabe) => {
+      aufgabe.erledigt = true;
+    });
+    set(ref(db, "rooms"), data);
+    }
+    
+  }
+
   return (
     <div className="room-page">
       <div className="aufgaben-container">
@@ -77,9 +92,15 @@ function Room() {
         </h1>
         {BadezimmerAufgaben}
       </div>
-      <Link className="next-room-link" to={`/zimmer/${linkNummer}`}>
-        ZIMMER {linkNummer} <span className="material-symbols-outlined">navigate_next</span>
-      </Link>
+      <div className="footer-room">
+        <button onClick={checkAllTasks} className="check-all-btn">
+          <span className="material-symbols-outlined check-icon">done_all</span>CHECK ALL
+        </button>
+        <Link className="next-room-link" to={`/zimmer/${linkNummer}`}>
+          ZIMMER {linkNummer}{" "}
+          <span className="material-symbols-outlined next-icon">navigate_next</span>
+        </Link>
+      </div>
     </div>
   );
 }

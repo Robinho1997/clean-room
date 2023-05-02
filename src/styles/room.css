@@ -36,14 +36,47 @@
     font-size: 40px;
 }
 
+.footer-room {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px ;
+    border-top: 1px solid grey;
+    margin-top: 10%;
+}
+
+.check-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: black;
+    font-family: inherit;
+    padding: 10px;
+   border: 1px solid green;
+   border-radius: 2px;
+
+}
+
+.check-icon {
+    color: green;
+    font-size: 30px;
+  
+}
+
 .next-room-link {
     display: flex;
     text-decoration: none;
     align-items: center;
-    padding-top: 30px;
-    padding-bottom: 50px;
-    justify-content: center;
-   
+    padding-block: 10px;
+    padding-left: 10px;
+    border: 1px solid green;
+   border-radius: 2px;
 }
+
+.next-icon {
+    font-size: 30px;
+ 
+}
+
 
 
