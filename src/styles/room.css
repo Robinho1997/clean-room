@@ -21,7 +21,7 @@
 
 .aufgabe {
     cursor: pointer;
-   text-align: center;
+    text-align: center;
     border: 1px solid grey;
     padding: 20px 30px;
     width: 270px;
@@ -52,8 +52,8 @@
     background-color: black;
     font-family: inherit;
     padding: 10px;
-   border: 1px solid green;
-   border-radius: 2px;
+    border: 1px solid green;
+    border-radius: 2px;
     cursor: pointer;
 }
 
@@ -70,13 +70,48 @@
     padding-block: 10px;
     padding-left: 10px;
     border: 1px solid green;
-   border-radius: 2px;
+    border-radius: 2px;
 }
 
 .next-icon {
     font-size: 30px;
- 
 }
 
+
+
+.add-aufgabe-div input {
+    height: 100%;
+    padding: 15px 15px;
+    color: black;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 20px;
+    margin-block: 30px;
+}
+
+.add-aufgabe-div input:focus {
+    border: none;
+    outline: none;
+}
+
+.add-aufgabe-div button {
+    padding: 15px 15px;
+    color: green;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin-block: 30px;
+}
+
+.add-icon {
+    cursor: pointer;
+    font-size: 30px;
+}
 
 

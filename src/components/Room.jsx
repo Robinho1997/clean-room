@@ -7,15 +7,12 @@ import { Link } from "react-router-dom";
 import "../styles/room.css";
 import Aufgabe from "./Aufgabe";
 
-
-
 function Room() {
-  
   const { raumnummer } = useParams();
   const { data, db } = useContext(Context);
   const dataArray = data ? Object.values(data) : [];
   const room = dataArray.find((room) => room.raumnummer == raumnummer);
-
+  const [toggleAddDiv, setToggleAddDiv] = useState(false);
   let Aufgaben = null;
   let BadezimmerAufgaben = null;
 
@@ -68,15 +65,18 @@ function Room() {
   function checkAllTasks() {
     if (data) {
       dataArray.find((room) => room.raumnummer == raumnummer);
-    room.aufgaben.forEach((aufgabe) => {
-      aufgabe.erledigt = true;
-    });
-    room.badezimmerAufgaben.forEach((aufgabe) => {
-      aufgabe.erledigt = true;
-    });
-    set(ref(db, "rooms"), data);
+      room.aufgaben.forEach((aufgabe) => {
+        aufgabe.erledigt = true;
+      });
+      room.badezimmerAufgaben.forEach((aufgabe) => {
+        aufgabe.erledigt = true;
+      });
+      set(ref(db, "rooms"), data);
     }
-    
+  }
+
+  function toggleAddOption() {
+    setToggleAddDiv((prev) => (prev = !prev));
   }
 
   return (
@@ -84,8 +84,21 @@ function Room() {
       <div className="aufgaben-container">
         <h1>
           <span className="material-symbols-outlined icon">room_service</span>{" "}
-          Zimmer {raumnummer}
+          Zimmer {raumnummer}{" "}
+          <span
+            onClick={toggleAddOption}
+            className="material-symbols-outlined add-icon"
+          >
+            add_circle
+          </span>
         </h1>
+        <div
+          className="add-aufgabe-div"
+          style={{ display: toggleAddDiv ? "flex" : "none" }}
+        >
+          <input type="text"></input>
+          <button>ADD </button>
+        </div>
         {Aufgaben}
       </div>
       <div className="aufgaben-container">
@@ -97,11 +110,14 @@ function Room() {
       </div>
       <div className="footer-room">
         <button onClick={checkAllTasks} className="check-all-btn">
-          <span className="material-symbols-outlined check-icon">done_all</span>CHECK ALL
+          <span className="material-symbols-outlined check-icon">done_all</span>
+          CHECK ALL
         </button>
         <Link className="next-room-link" to={`/zimmer/${linkNummer}`}>
           ZIMMER {linkNummer}{" "}
-          <span className="material-symbols-outlined next-icon">navigate_next</span>
+          <span className="material-symbols-outlined next-icon">
+            navigate_next
+          </span>
         </Link>
       </div>
     </div>

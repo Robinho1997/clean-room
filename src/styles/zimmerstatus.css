@@ -35,9 +35,7 @@
 
 .room-number {
     font-weight: bold;
-
     font-size: 30px;
-  
     filter: drop-shadow(5px 5px 10px #000);
     border-radius: 50%;
     text-align: center;
@@ -48,7 +46,6 @@
     align-items: center;
     color: whitesmoke;
     text-decoration: none;
-  
 }
 
 .dirty {
