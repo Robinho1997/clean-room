@@ -1,4 +1,5 @@
 
+
 .zimmer-status-div {
     display: flex;
     justify-content: center;
@@ -26,15 +27,17 @@
 }
 
 
-.room-numbers-div{
+.room-numbers-div {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .room-number {
-    font-size: 30px;
     font-weight: bold;
+
+    font-size: 30px;
+  
     filter: drop-shadow(5px 5px 10px #000);
     border-radius: 50%;
     text-align: center;
@@ -45,7 +48,7 @@
     align-items: center;
     color: whitesmoke;
     text-decoration: none;
-    background-color: rgb(39, 163, 39);
+  
 }
 
 .dirty {
@@ -56,6 +59,7 @@
     background-color: rgb(39, 163, 39);
 }
 
+
 .reset-btn {
     justify-content: center;
     text-align: center;
@@ -63,12 +67,21 @@
     display: flex;
     align-items: center;
     font-family: inherit;
-   border-radius: 2px;
-   padding: 10px;
+    border-radius: 2px;
+    padding: 20px;
     color: whitesmoke;
     font-weight: bold;
     background-color: red;
-   border-top: 1px solid grey;
-   border-left: none;
+    border-top: 1px solid grey;
+    border-left: none;
     display: flex;
+    cursor: pointer;
+}
+
+
+@media(min-width:500px) {
+    .reset-btn {
+        position: absolute;
+        bottom: 0;
+    }
 }

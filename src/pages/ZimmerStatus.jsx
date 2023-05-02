@@ -64,7 +64,7 @@ function ZimmerStatus() {
     });
   }
   return (
-    <div>
+    <div className="zimmer-status-container">
       <div className="zimmer-status-div">{elements}</div>
       <button className="reset-btn" onClick={resetRooms}>
         <span className="material-symbols-outlined">delete</span>
