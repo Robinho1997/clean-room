@@ -1,13 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../styles/zimmerstatus.css";
 import { Context } from "../Context";
 import { ref, set } from "firebase/database";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
+import AddInfos from "../components/AddInfos";
 
 function ZimmerStatus() {
   const { data, db } = useContext(Context);
-  const dataArray = data ? Object.values(data) : [];
+  const dataArray = data ? Object.values(data) : [];  
+
   let elements;
 
   function resetRooms() {
@@ -63,12 +65,20 @@ function ZimmerStatus() {
       );
     });
   }
+
+
+
+
+
   return (
+    <div>
+         <AddInfos />
     <div className="zimmer-status-container">
       <div className="zimmer-status-div">{elements}</div>
       <button className="reset-btn" onClick={resetRooms}>
         <span className="material-symbols-outlined">delete</span>
       </button>
+    </div>
     </div>
   );
 }

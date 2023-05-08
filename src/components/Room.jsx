@@ -12,7 +12,6 @@ function Room() {
   const { data, db } = useContext(Context);
   const dataArray = data ? Object.values(data) : [];
   const room = dataArray.find((room) => room.raumnummer == raumnummer);
-  const [toggleAddDiv, setToggleAddDiv] = useState(false);
   let Aufgaben = null;
   let BadezimmerAufgaben = null;
 
@@ -75,9 +74,7 @@ function Room() {
     }
   }
 
-  function toggleAddOption() {
-    setToggleAddDiv((prev) => (prev = !prev));
-  }
+
 
   return (
     <div className="room-page">
@@ -85,20 +82,9 @@ function Room() {
         <h1>
           <span className="material-symbols-outlined icon">room_service</span>{" "}
           Zimmer {raumnummer}{" "}
-          <span
-            onClick={toggleAddOption}
-            className="material-symbols-outlined add-icon"
-          >
-            add_circle
-          </span>
+         
         </h1>
-        <div
-          className="add-aufgabe-div"
-          style={{ display: toggleAddDiv ? "flex" : "none" }}
-        >
-          <input type="text"></input>
-          <button>ADD </button>
-        </div>
+       
         {Aufgaben}
       </div>
       <div className="aufgaben-container">
